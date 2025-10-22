@@ -30,6 +30,26 @@
   color: var(--color-accent) !important;
 }
 
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-highlight);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text);
+}
+
 body {
   font-family: var(--font);
   background-color: var(--color-bg);
@@ -40,6 +60,17 @@ body {
 
 .nav-item {
   margin-right: 35px;
+}
+
+.hover-text {
+  transition: all 0.5s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.hover-text:hover {
+  transform: scale(1.15);
+  text-decoration: underline;
 }
 
 .image {
@@ -59,4 +90,47 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover; /* keeps aspect ratio and fills circle */
+}
+
+.card {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-accent {
+  position: relative;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font);
+  font-weight: 600;
+  background-color: var(--color-accent);
+  color: black;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.btn-accent::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+  transition: width 0.4s ease;
+}
+
+.btn-accent:hover {
+  background-color: var(--color-highlight);
+  color: var(--color-text);
+}
+
+.btn-accent:hover::before {
+  width: 150%;
 }
